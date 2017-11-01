@@ -1,0 +1,16 @@
+- name: ensure pip is present
+  become: true
+  package:
+    name: py-pip
+    state: present
+
+- name: ensure virtualenv is present
+  become: true
+  package:
+    name: py-virtualenv
+    state: present
+
+- name: ensure docker-py is present
+  become: true
+  pip:
+    name: docker-py

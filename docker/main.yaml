@@ -1,0 +1,8 @@
+---
+- name: docker experiment
+  hosts: all
+  tasks:
+  - name: go image
+    docker_image:
+      name: siuyin/go:dev
+

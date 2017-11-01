@@ -1,0 +1,21 @@
+---
+- name: register variable experiment
+  hosts: all
+  tasks:
+  - name: stat .vimrc before
+    stat:
+      path: /home/siuyin/.vimrc
+    register: stat_before
+  - name: touch .vimrc
+    file:
+      path: /home/siuyin/.vimrc
+      state: touch
+  - name: stat .vimrc after
+    stat:
+      path: /home/siuyin/.vimrc
+    register: stat_after
+  - name: check file
+    debug:
+      msg: same file
+    when: stat_before.stat.checksum != stat_after.stat.checksum
+

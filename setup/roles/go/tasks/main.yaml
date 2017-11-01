@@ -1,0 +1,16 @@
+- name: ensure home/go is present
+  file:
+    path: /home/siuyin/go
+    state: directory
+
+- name: ensure go language is present
+  become: true
+  package:
+    name: go
+    state: present
+
+- name: ensure musl-dev is present, a go dependency on alpine
+  become: true
+  package:
+    name: musl-dev
+    state: present

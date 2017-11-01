@@ -1,0 +1,12 @@
+---
+- name: Setup my development environment
+  hosts: all
+  
+  roles:
+    - common
+    - pip
+    - ssh
+    #- go
+
+  tasks:
+

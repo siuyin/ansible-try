@@ -1,0 +1,8 @@
+localhost ansible_connection=local
+gerbau ansible_host=localhost ansible_connection=local
+
+[local]
+localhost
+
+[remote]
+gerbau

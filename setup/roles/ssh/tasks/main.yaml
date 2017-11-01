@@ -1,0 +1,6 @@
+- name: ensure openssh is present
+  become: true
+  package:
+    name: openssh
+    state: present
+

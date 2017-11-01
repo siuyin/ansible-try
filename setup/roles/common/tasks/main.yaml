@@ -1,0 +1,36 @@
+- name: ensure vim is present
+  become: true
+  package:
+    name: vim
+    state: present
+
+- name: install vimrc
+  copy:
+    src: .vimrc # both this form and the form below works.
+    # src: files/.vimrc
+    dest: /home/siuyin/.vimrc
+
+- name: ensure git is present
+  become: true
+  package:
+    name: git
+    state: present
+
+- name: ensure tmux is present
+  become: true
+  package:
+    name: tmux
+    state: present
+
+- name: ensure curl is present
+  become: true
+  package:
+    name: curl
+    state: present
+
+
+- name: ensure home/bin is present
+  file:
+    path: /home/siuyin/bin
+    state: directory
+
