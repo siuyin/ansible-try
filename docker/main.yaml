@@ -1,8 +1,20 @@
 ---
 - name: docker experiment
   hosts: all
+  vars:
+    docker_user: "{{sec.docker_user}}"
+    docker_passwd: "{{sec.docker_passwd}}"
   tasks:
+  - name: load secrets
+    include_vars:
+      file: secrets.yaml
+      name: sec
   - name: go image
     docker_image:
       name: siuyin/go:dev
-
+  - name: debug
+    debug:
+      var: docker_user
+  - name: debug
+    debug:
+      var: docker_passwd

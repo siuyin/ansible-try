@@ -1,2 +1,2 @@
 #!/bin/sh
-ansible-playbook -i localhost, -c local main.yaml
+ansible-playbook -i localhost, -c local --ask-vault-pass main.yaml
