@@ -4,6 +4,7 @@
   vars:
     docker_user: "{{sec.docker_user}}"
     docker_passwd: "{{sec.docker_passwd}}"
+    docker_email: "{{sec.docker_email}}"
   tasks:
   - name: load secrets
     include_vars:
@@ -12,9 +13,21 @@
   - name: go image
     docker_image:
       name: siuyin/go:dev
-  - name: debug
-    debug:
-      var: docker_user
-  - name: debug
-    debug:
-      var: docker_passwd
+  - name: docker login 
+    docker_login:
+      username: "{{docker_user}}"
+      password: "{{docker_passwd}}"
+      email: "{{docker_email}}"
+
+      #   docker logout only works if the docker command line utillity is present.
+      #   - name: docker logout
+      #     docker_login:
+      #       email: "{{docker_email}}"
+      #       state: absent
+
+      #  - name: debug
+      #    debug:
+      #      var: docker_user
+      #  - name: debug
+      #    debug:
+      #      var: docker_passwd
