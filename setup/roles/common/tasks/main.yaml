@@ -28,6 +28,11 @@
     name: curl
     state: present
 
+- name: ensure procps (top and friends) is present
+  become: true
+  package:
+    name: procps
+    state: present
 
 - name: ensure home/bin is present
   file:
