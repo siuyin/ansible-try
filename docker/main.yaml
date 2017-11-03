@@ -24,6 +24,7 @@
       src: https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-ce.tgz
       remote_src: yes
       dest: /usr/local/bin
+      creates: /usr/local/bin/docker
       extra_opts:
         - "--strip-components=1"
         - "docker/docker"
